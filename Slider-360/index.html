@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slider 360</title>
+    <link
+      href="http://www.jqueryscript.net/css/jquerysctipttop.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .wrapped {
+        text-align: center;
+        font-family: "Roboto", Helvetica, Arial, sans-serif;
+        display: table;
+        width: 400px;
+        margin: 150px auto;
+      }
+
+      .wrapped h1 {
+        color: #444;
+        font-size: 70px;
+        font-weight: 700;
+        padding: 0px 0 0px 15px;
+        margin: 0 0 30px 0;
+        text-transform: uppercase;
+      }
+
+      .middle {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .inner {
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      .slider3d-class {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: url(./img/slide_image.jpg);
+        background-size: 100% 3600%;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+      }
+
+      #ranger {
+        width: 200px;
+      }
+
+      #ranger:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="jquery-script-menu">
+      <div class="jquery-script-center">
+        <ul>
+          <li>
+            <a
+              href="http://www.jqueryscript.net/slider/3D-Product-Image-Slider-Viewer-Plugin-With-jQuery.html"
+              >Download This Plugin</a
+            >
+          </li>
+          <li>
+            <a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a>
+          </li>
+        </ul>
+        <div class="jquery-script-ads">
+          <script type="text/javascript">
+            google_ad_client = "ca-pub-2783044520727903";
+            /* jQuery_demo */
+            google_ad_slot = "2780937993";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            //
+          </script>
+          <script
+            type="text/javascript"
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js"
+          ></script>
+        </div>
+        <div class="jquery-script-clear"></div>
+      </div>
+    </div> -->
+    <div class="wrapped">
+      <div class="inner">
+        <!-- <h1>slider3D</h1> -->
+        <div class="slider3d-class" data-image-size="400px"></div>
+        <input
+          class="ranger"
+          type="range"
+          min="0"
+          max="35"
+          value="0"
+          step="1"
+        />
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $(".slider3d-class").css({
+        height: $(".slider3d-class").data("image-size"),
+      });
+      $(".ranger").on("input change", function () {
+        var position =
+          $(this).val() * $(this).parent().find(".slider3d-class").height();
+        $(this)
+          .parent()
+          .find(".slider3d-class")
+          .css({ "background-position-y": -position });
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(["_setAccount", "UA-36251023-1"]);
+    _gaq.push(["_setDomainName", "jqueryscript.net"]);
+    _gaq.push(["_trackPageview"]);
+
+    (function () {
+      var ga = document.createElement("script");
+      ga.type = "text/javascript";
+      ga.async = true;
+      ga.src =
+        ("https:" == document.location.protocol
+          ? "https://ssl"
+          : "http://www") + ".google-analytics.com/ga.js";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>
